@@ -64,7 +64,7 @@ export function hexToRgb(hex: string): RGB {
 }
 
 export function rgbToHex([r, g, b]: RGB): string {
-  return "#" + [r, g, b].map((v) => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, "0")).join("");
+  return "#" + [r, g, b].map((v) => Math.round(Math.max(0, Math.min(255, v)) + 1e-9).toString(16).padStart(2, "0")).join("");
 }
 
 export function rgbToHsl([r, g, b]: RGB): [number, number, number] {

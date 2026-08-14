@@ -28,7 +28,7 @@ function hexToRgb(hex: string): [number, number, number] {
 
 function rgbToHex(r: number, g: number, b: number): string {
   const to = (v: number) => {
-    const n = Math.round(v);
+    const n = Math.round(v + 1e-9);
     const c = n < 0 ? 0 : n > 255 ? 255 : n;
     return c.toString(16).padStart(2, "0");
   };
@@ -115,7 +115,7 @@ List<int> _hexToRgb(String hex) {
 
 String _rgbToHex(double r, double g, double b) {
   String to(double v) {
-    var n = v.round();
+    var n = (v + 1e-9).round();
     if (n < 0) n = 0;
     if (n > 255) n = 255;
     return n.toRadixString(16).padLeft(2, '0');
